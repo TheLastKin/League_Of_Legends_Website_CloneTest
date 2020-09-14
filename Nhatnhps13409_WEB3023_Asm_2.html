@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_Structure.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_TopHead_Banner.css">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_Content_Champion.css">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_Content_ChampionSkin.css">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_Content_GameModes.css">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_Content_GetStarted_GameNews.css">
+    <link rel="stylesheet" href="Nhatnhps13409_Asm_CSS_Content_Footer.css">
+    <title>HoangNhat_Asm</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var idx_current = 1;
+        var idx_current2 = 2;
+
+        $(window).on('load',function(){
+            appendTags($(this).width());
+            $('.role_assassin').append($(".yellow_ball"))
+            $('.role_assassin').append($(".outer_ring"))
+            $('.role_assassin').append($('.outer_outer_ring'))
+            $('.role_assassin>div').attr('id','on_clicked_champion_roles_div')
+            $('.role_assassin>p').attr('id','on_clicked_champion_roles_p');
+            changeChampionSkin();
+        });
+        $(window).on('resize',function(){
+            appendTags($(this).width());
+        });
+        $(document).ready(function(){
+            $(".riot_animated_logo").hover(function(){
+                $(this).trigger('play');
+            },function(){
+                this.currentTime = 0;
+                $(this)[0].pause();
+            });
+            $(".champion_roles>div").on('click',function(){
+                var move = "+=" + (96.25*($(this).index()-idx_current));
+                if(idx_current!=$(this).index()){
+                    $(".champion_roles>div div").removeAttr('id','on_clicked_champion_roles_div');
+                    $(".champion_roles>div p").removeAttr('id','on_clicked_champion_roles_p');
+                    $('.outer_outer_ring').fadeOut(200);
+                    $('.outer_ring').fadeOut(200);
+                    $('.yellow_ball span').removeClass("addHeight").addClass("removeHeight");
+                    $(this).children("div").attr('id','on_clicked_champion_roles_div');
+                    $(this).children("p").attr('id','on_clicked_champion_roles_p');
+                    setTimeout(() => {
+                        $('.outer_outer_ring').appendTo($(this)).fadeIn(200);
+                        $('.outer_ring').appendTo($(this)).fadeIn(200);
+                    }, 200);
+                    setTimeout(() => {
+                        $('.yellow_ball span').css("transition","0.3s");
+                        $('.yellow_ball span').removeClass("removeHeight").addClass("addHeight");
+                    }, 800);
+                    $('.yellow_ball').animate({
+                        left: move
+                    },{
+                        duration: 800,
+                        easing: "swing"
+                    });
+                    changeChampionImage($(this).index());
+                    idx_current = $(this).index();
+                }
+            });
+            $('.champion_roles_small>ul>li').on('click',function(){
+                $('.champion_roles_small>ul>li:not(li:nth-child('+ ($(this).index()+1) + '))').css('color','rgb(204, 204, 204,0.8)');
+                $(this).css('color','black');
+                changeChampionImage($(this).index()+1);
+            });
+            $('.game_modes_choices>div').on('click',function(){
+                if($(this).index()!=idx_current2){
+                    var y = $(this).index();
+                    $('.game_modes_video>video:not(video:nth-of-type('+ (y+1) + '))').css('animation','clearVideo 0.5s linear forwards');
+                    $('.game_modes_video>video:nth-of-type('+ (y+1) + ')').css('animation','showVideo 0.5s linear forwards');
+                    $('.game_modes_choices>div:nth-of-type('+ (y+1) + ')>span').css('animation','showBanner 0.3s linear forwards');
+                    $('.game_modes_choices>div:nth-of-type('+ (idx_current2+1) + ')>span').css('animation','clearBanner 0.3s linear forwards');
+                    $('.game_modes_choices>div:nth-of-type('+ (y+1) + ')>p').css('color','black');
+                    $('.game_modes_choices>div:nth-of-type('+ (idx_current2+1) + ')>p').css('color','white');
+                    if(y==0){
+                        $('.game_modes_container>p:nth-of-type(3)').text("THE MOST POPULAR GAME MODE");
+                        $('.game_modes_container>p:nth-of-type(4)').text("Clear your lane, dive into epic 5v5 team fights, and destroy the enemy nexus before they destroy yours.");
+                    }else if(y==1){
+                        $('.game_modes_container>p:nth-of-type(3)').text("ALL RANDOM, ALL MID");
+                        $('.game_modes_container>p:nth-of-type(4)').text("Battle across an icy bridge as your team of random champions charge toward the enemy Nexus in this chaotically fun 5v5 game mode.");
+                    }else if(y==2){
+                        $('.game_modes_container>p:nth-of-type(3)').text("A FREE-FOR-ALL WAR FOR SUPREMACY");
+                        $('.game_modes_container>p:nth-of-type(4)').text("Assemble a squad of champions that battle on your behalf. Outlast all seven of your opponents and become the last person standing.");
+                    }
+                    var x = "+=" + (90*(idx_current2-y)) + "px";
+                    $('.game_modes_choices>div:nth-of-type('+ (y+1) + ')').animate({
+                        height: '+=40px'
+                    }, {
+                        duration: 300,
+                        queue: false
+                    });
+
+                    $('.game_modes_choices>div:nth-of-type('+ (idx_current2+1) + ')').animate({
+                        height: '-=40px'
+                    }, {
+                        duration: 300,
+                        queue: false
+                    });
+                    $('.game_modes_choices>div').animate({
+                        top: x
+                    }, {
+                        duration: 300,
+                        queue: false
+                    });
+                    $('.game_modes_choices>div:nth-of-type('+ (y+1) + ')>img').animate({
+                        width: '+=35px',
+                        height: '+=40px'
+                    },{
+                        duration: 300,
+                        queue: false
+                    });
+                    $('.game_modes_choices>div:nth-of-type('+ (idx_current2+1) + ')>img').animate({
+                        width: '-=35px',
+                        height: '-=40px'
+                    },{
+                        duration: 300,
+                        queue: false
+                    });
+                    idx_current2 = y;
+                }
+            });
+            $('.content_game_news>a').hover(function(){
+                $(this).animate({
+                    marginTop: '-=15px'
+                }, 300);
+            },function(){
+                $(this).animate({
+                    marginTop: '+=15px'
+                },300);
+            });
+        $('.login_background').on('click',function(){
+            $('.login_container').fadeOut(300);
+        })
+        $('.sign_in').on('click',function(){
+            $('.login_container').css('z-index','10').fadeIn(300);
+            $('.login_background').fadeIn(300);
+        });
+        });
+        function changeChampionSkin(){
+            setInterval(() => {
+                $('.champion_skin img:not(img:nth-of-type(2))').css('animation','clearSkin 2s linear forwards');
+                $('.champion_skin img:nth-of-type(2)').css('animation','showSkin 2s linear forwards');
+            }, 2000);
+            setInterval(() => {
+                $('.champion_skin img:not(img:nth-of-type(1))').css('animation','clearSkin 2s linear forwards');
+                $('.champion_skin img:nth-of-type(1)').css('animation','showSkin 2s linear forwards');
+            }, 4000);
+            setInterval(() => {
+                $('.champion_skin img:not(img:nth-of-type(3))').css('animation','clearSkin 2s linear forwards');
+                $('.champion_skin img:nth-of-type(3)').css('animation','showSkin 2s linear forwards');
+            }, 6000);
+        }
+        function changeChampionImage(x){
+            var a;
+                    if(x==1){
+                        $(".animated_circle img:first").attr('src','Image/Champion_Akali.png');
+                        $('.animated_circle>p:first').text('AKALI');
+                        $('.animated_circle>p:last').text('The Rogue Assassin');
+                        $('.content_champion').css('background-image','linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("Image/Assassin_icon_gray.jpg")');
+                        a = 'Image/Champion_Akali.png';
+                    }else if(x==2){
+                        $(".animated_circle img:first").attr('src','Image/Champion_Yasuo.png');
+                        $('.animated_circle>p:first').text('YASUO');
+                        $('.animated_circle>p:last').text('The Unforgiven');
+                        $('.content_champion').css('background-image','linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("Image/Fighter_icon_gray.jpg")');
+                        a = 'Image/Champion_Yasuo.png';
+                    }else if(x==3){
+                        $(".animated_circle img:first").attr('src','Image/Champion_Lux.png');
+                        $('.animated_circle>p:first').text('LUX');
+                        $('.animated_circle>p:last').text('The Luminous Lady');
+                        $('.content_champion').css('background-image','linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("Image/Mage_icon_gray.jpg")');
+                        a = 'Image/Champion_Lux.png';
+                    }else if(x==4){
+                        $(".animated_circle img:first").attr('src','Image/Champion_Jinx.png');
+                        $('.animated_circle>p:first').text('JINX');
+                        $('.animated_circle>p:last').text('The Loose Canon');
+                        $('.content_champion').css('background-image','linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("Image/Marksman_icon_gray.png")');
+                        a = 'Image/Champion_Jinx.png';
+                    }else if(x==5){
+                        $(".animated_circle img:first").attr('src','Image/Champion_Thresh.png');
+                        $('.animated_circle>p:first').text('THRESH');
+                        $('.animated_circle>p:last').text('The Chain Warden');
+                        $('.content_champion').css('background-image','linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("Image/Support_icon_gray.jpg")');
+                        a = 'Image/Champion_Thresh.png';
+                    }else if(x==6){
+                        $(".animated_circle img:first").attr('src','Image/Champion_Leona.png');
+                        $('.animated_circle>p:first').text('LEONA');
+                        $('.animated_circle>p:last').text('The Radiant Dawn');
+                        $('.content_champion').css('background-image','linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("Image/Tank_icon_gray.png")');
+                        a = 'Image/Champion_Leona.png';
+                    }
+                    $('.animated_circle img:last').css('animation','slash 0.6s linear forwards');
+                    setTimeout(() => {
+                        $('.animated_circle img:first').css('animation','slash2 0.6s linear forwards');
+                        $('.animated_circle img:first').css('z-index',2);
+                        $('.animated_circle img:last').css('z-index',1);
+                    }, 150);
+                    setTimeout(() => {
+                        $('.animated_circle img:first').css('animation','none');
+                        $('.animated_circle img:last').css('animation','none');
+                        $('.animated_circle img:first').css('z-index',1);
+                        $('.animated_circle img:last').css('z-index',2);
+                        $('.animated_circle img:last').attr('src',a);
+                    }, 800);
+                        $('.champion_roles>video:not(video:nth-of-type('+ x + '))').css('z-index','1');
+                        $('.champion_roles>video:nth-of-type('+ x + ')').css('z-index','2');
+        }
+        function appendTags(width){
+            if(width<=1734){
+                $("#list_more").css('display','block');
+            }
+            if(width<=1065){
+                $("#list_more ul").append($(".redirect_tags>li:nth-child(n+5)"));
+            }else if(width<=1160){
+                $(".redirect_tags").append($(".li_5"));
+                $("#list_more ul").append($(".redirect_tags>li:nth-child(n+6)"));
+            }else if(width<=1300){
+                $(".redirect_tags").append($(".li_5"));
+                $(".redirect_tags").append($(".li_6"));
+                $("#list_more ul").append($(".redirect_tags>li:nth-child(n+7)"));
+            }else if(width<=1480){
+                $(".redirect_tags").append($(".li_5"));
+                $(".redirect_tags").append($(".li_6"));
+                $(".redirect_tags").append($(".li_7"));
+                $("#list_more ul").append($(".redirect_tags>li:nth-child(n+8)"));
+            }else if(width<=1680){
+                $(".redirect_tags").append($(".li_5"));
+                $(".redirect_tags").append($(".li_6"));
+                $(".redirect_tags").append($(".li_7"));
+                $(".redirect_tags").append($(".li_8"));
+                $("#list_more ul").append($(".redirect_tags>li:nth-child(n+9)"));
+            }else if(width<=1734){
+                $(".redirect_tags").append($(".li_5"));
+                $(".redirect_tags").append($(".li_6"));
+                $(".redirect_tags").append($(".li_7"));
+                $(".redirect_tags").append($(".li_8"));
+                $(".redirect_tags").append($(".li_9"));
+                $("#list_more ul").append($(".redirect_tags>li:nth-child(n+10)"))
+            }else if(width>1734){
+                $("#list_more").css('display','none');
+                $(".redirect_tags").append($(".li_5"));
+                $(".redirect_tags").append($(".li_6"));
+                $(".redirect_tags").append($(".li_7"));
+                $(".redirect_tags").append($(".li_8"));
+                $(".redirect_tags").append($(".li_9"));
+                $(".redirect_tags").append($(".li_10"));
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="tophead">
+            <div class="innertophead_left_1">
+                <video class="riot_animated_logo" src="Video/Riot_animated_logo.mp4" muted></video>
+                <i class="material-icons-round">arrow_drop_down</i>
+            </div>
+            <div class="innertophead_left_2" onload="">
+                <img src="Image/LOL_Gold_Icon.webp" alt="">
+                <ul class="redirect_tags">
+                    <li class="li_1"><a href="">GAME</a></li>
+                    <li class="li_2"><a href="">CHAMPIONS</a></li>
+                    <li class="li_3"><a href="">NEWS <i class="material-icons-round" id="arrow_drop_down">arrow_drop_down</i></a></li>
+                    <li id="list_more">MORE <i class="material-icons-round" id="arrow_drop_down">arrow_drop_down</i>
+                        <ul>
+                        </ul>
+                    </li>
+                    <li class="li_5"><a href="">PATHCH NOTES</a></li>
+                    <li class="li_6"><a href="">DISCOVER <i class="material-icons-round" id="arrow_drop_down">arrow_drop_down</i></a></li>
+                    <li class="li_7"><a href="">ESPORTS <i class="material-icons-round" id="north_east">north_east</i></a></li>
+                    <li class="li_8"><a href="">UNIVERSE <i class="material-icons-round" id="north_east">north_east</i></a></li>
+                    <li class="li_9"><a href="">SHOP <i class="material-icons-round" id="north_east">north_east</i></a></li>
+                    <li class="li_10"><a href="">SUPPORT <i class="material-icons-round" id="north_east">north_east</i></a></li>
+                </ul>
+            </div>
+            <div class="innertophead_right">
+                <i class="material-icons-round" id="dehaze">dehaze</i>
+                <i class="material-icons">language</i>
+                <div class="sign_in">SIGN IN</div>
+                <a href="" class="btn_play_now">PLAY NOW</a>
+            </div>
+        </div>
+        <div class="login_container">
+            <div class="login_background"></div>
+            <div class="login_form">
+                <p>SIGN IN</p>
+                <form action="">
+                    <input type="text" name="" id="username" placeholder="Username">
+                    <input type="password" name="" id="password" placeholder="Password">
+                    <input type="checkbox" name="checkbox" id="chk_stay_signed">
+                    <label for="chk_stay_signed">Stay Signed In</label>
+                    <button><i class="material-icons-round" id="east">east</i></button>
+                </form>
+            </div>
+        </div>
+        <div class="intro_banner">
+            <video class="LOL_Intro_Video_Blurred" src="Video/LOL_Intro_Video_Blurred.mp4" autoplay muted loop></video>
+        </div>
+        <div class="intro_banner_front">
+            <div class="outerline_banner"><span></span></div>
+            <video class="LOL_Intro_Video" src="Video/Intro_Video_LOL.mp4" autoplay muted loop></video>
+            <img src="Image/LOL_Logo.png" alt="">
+            <div class="outer">
+                <div class="top_left_corner"></div>
+                <div class="bottom_right_corner"></div>
+                <a class="btn_play_for_free" href="">PLAY FOR FREE</a>
+            </div>
+        </div>
+        <div class="articles">
+            <div class="title_left">
+                <p>FEATURED NEWS</p>
+            </div>
+            <section>
+                <article class="article_box_1">
+                    <span class="white_line"></span>
+                    <span class="top_right_border"></span>
+                    <img src="Image/Article_Image_1.jpg" alt="">
+                    <p>GAME UPDATES</p>
+                    <a href="" class="article_title">Support Esports teams with Conqueror Nautilus!</a>
+                    <p>Conqueror Nautilus is hitting the rift</p>
+                </article>
+                <article class="article_box_2">
+                    <span class="white_line"></span>
+                    <span class="top_right_border"></span>
+                    <img src="Image/Article_Image_2.jpg" alt="">
+                    <p>MEDIA</p>
+                    <a href="" class="article_title">The Path, An Ionian Myth</a>
+                    <p>Every myth carries a seed of truth. A slain swordman must decide if he</p>
+                </article>
+                <article class="article_box_3">
+                    <span class="white_line"></span>
+                    <span class="top_right_border"></span>
+                    <img src="Image/Article_Image_3.jpg" alt="">
+                    <p>DEV</p>
+                    <a href="" class="article_title">Quick Gameplay Thoughts: July 10!</a>
+                    <p>Disruptive Behavior Reduction, Any-</p>
+                </article>
+                <a href="" class="view_all">VIEW ALL <i class="material-icons-round">east</i></a>
+            </section>
+        </div>
+        <div class="content">
+            <div class="content_champion">
+                <p>CHOOSE YOUR</p>
+                <p>CHAMPION</p>
+                <p>Whether you like to dive straight into the fray, support your teammates, or <br> something in between, there's a spot for you on the Rift.</p>
+                <a href="">DISCOVER MORE CHAMPIONS</a>
+                <a href="">PLAY NOW</a>
+                <div class="champion_roles_small">
+                    <ul>
+                        <li>ASSASSINS</li>
+                        <li>FIGHTERS</li>
+                        <li>MAGES</li>
+                        <li>MARKMEN</li>
+                        <li>SUPPORTS</li>
+                        <li>TANKS</li>
+                    </ul>
+                </div>
+                <div class="animated_circle">
+                    <img src="Image/Champion_Yasuo.png" alt="">
+                    <img src="Image/Champion_Akali.png" alt="">
+                    <p>AKALI</p>
+                    <p>The Rogue Assassin</p>
+                        <div class="champion_roles">
+                        <span class="outer_outer_ring"></span>
+                        <span class="outer_ring"></span>
+                        <span class="line"></span>
+                        <span class="yellow_ball"><span></span></span>
+                        <div class="role_assassin">
+                            <div class="assassin_icon"></div>
+                            <p>ASSASSINS</p>
+                            <span class="gray_ball"></span>
+                        </div>
+                        <div class="role_fighter">
+                            <div class="fighter_icon"></div>
+                            <p>FIGHTERS</p>
+                            <span class="gray_ball"></span>
+                        </div>
+                        <div class="role_mage">
+                            <div class="mage_icon"></div>
+                            <p>MAGES</p>
+                            <span class="gray_ball"></span>
+                        </div>
+                        <div class="role_markman">
+                            <div class="markman_icon"></div>
+                            <p>MARKMEN</p>
+                            <span class="gray_ball"></span>
+                        </div>
+                        <div class="role_support">
+                            <div class="support_icon"></div>
+                            <p>SUPPORTS</p>
+                            <span class="gray_ball"></span>
+                        </div>
+                        <div class="role_tank">
+                            <div class="tank_icon"></div>
+                            <p>TANKS</p>
+                            <span class="gray_ball"></span>
+                        </div>
+                        <video src="Video/Class_Intro_Video.mp4" autoplay muted loop></video>
+                        <video src="Video/Class_Intro_Video_2.mp4" autoplay muted loop></video>
+                        <video src="Video/Class_Intro_Video_3.mp4" autoplay muted loop></video>
+                        <video src="Video/Class_Intro_Video_4.mp4" autoplay muted loop></video>
+                        <video src="Video/Class_Intro_Video_5.mp4" autoplay muted loop></video>
+                        <video src="Video/Class_Intro_Video_6.mp4" autoplay muted loop></video>
+                        <span class="outer_video"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="content_skin">
+                    <div class="champion_skin">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <img src="Image/Skinned_Akali_1.png" alt="">
+                        <img src="Image/Skinned_Akali_2.png" alt="">
+                        <img src="Image/Skinned_Akali_3.png" alt="">
+                    </div>
+                    <div class="champion_skin_description">
+                        <p>SLAY WITH</p>
+                        <p>STYLE</p>
+                        <p>Make it personal by changing the look of your favorite <br> champions with skins.</p>
+                        <a href="">PLAY NOW</a>
+                    </div>
+            </div>
+            <div class="content_game_modes">
+                <p>MULTIPLE WAYS TO</p>
+                <p>PLAY</p>
+                <a href="">PLAY NOW</a>
+                <div class="game_modes_container">
+                    <div class="game_modes_choices">
+                    <div class="mode_summoners_rift">
+                        <p>SUMMONER'S <br> RIFT</p>
+                        <span></span>
+                        <img src="" alt="">
+                    </div>
+                    <div class="mode_aram">
+                        <p>ARAM</p>
+                        <span></span>
+                        <img src="" alt="">
+                    </div>
+                    <div class="mode_tft">
+                        <p>TEAMFIGHT <br> TACTIC</p>
+                        <span></span>
+                        <img src="" alt="">
+                    </div>
+                    </div>
+                <p>MULTIPLE WAYS TO</p>
+                <p>PLAY</p>
+                <a href="">PLAY NOW</a>
+                <p>A FREE-FOR-ALL WAR FOR SUPREMACY</p>
+                <p>Assemble a squad of champions that battle on your behalf. Outlast all seven of your opponents and become the last person standing.</p>
+                </div>
+                <span></span>
+                <svg width="550px" height="550px">
+                    <circle cx="50%" cy="50%" r="48%" stroke-width="5px" stroke-dasharray="1,10" stroke="rgba(245, 222, 179, 0.6)" fill="none"></circle>
+                </svg>
+                <div class="game_modes_video">
+                    <video src="Video/SummonersRift_Video.mp4" autoplay muted loop></video>
+                    <video src="Video/Aram_Video.mp4" autoplay muted loop></video>
+                    <video src="Video/TFT_Video.mp4" autoplay muted loop></video>
+                </div>
+            </div>
+            <div class="content_get_started">
+                <img src="Image/Summoner_Rift.png" alt="">
+                <p>START YOUR</p>
+                <p>LEGEND</p>
+                <p>New to League? Get a rundown on the basics for the most popular game mode.</p>
+                <a href=""><span></span> <span></span> GET STARTED</a>
+                <a href=""><span></span> <span></span> PLAY FOR FREE</a>
+            </div>
+            <div class="content_game_news">
+                <p>MORE TO</p>
+                <p>DISCOVER</p>
+                <a href=""><span></span><p>RIVALRY OF THE AGES</p></a>
+                <a href=""><span></span><p>VOLIBEAR'S STORY: STORMBRINGER</p></a>
+            </div>
+            <div class="content_footer_intro">
+                <video src="Video/Footer_Video.mp4" autoplay muted loop></video>
+                <a href=""><span></span> <span></span> PLAY FOR FREE</a>
+            </div>
+            <div class="content_footer_banner">
+                <p>TAKE LEAGUE WITH YOU</p>
+                <p>Download the League app to stay connected to friends and the latest game and esports news.</p>
+                <img src="Image/App_Store.svg" alt="">
+                <img src="Image/Google_Play.svg" alt="">
+            </div>
+            <div class="footer">
+                <div class="innerfooter_left">
+                    <ul>
+                        <li><a href="">ABOUT LEAGUE OF LEGEND</a></li>
+                        <li><a href="">HELP US IMPROVE</a></li>
+                        <li><a href="">SERVER STATUS</a></li>
+                        <li><a href="">SUPPORT</a></li>
+                        <li><a href="">ESPORT PRO SITE</a></li>
+                    </ul>
+                    <img src="Image/Riot_static_logo.webp" alt="">
+                    <p>™ & © 2020 Riot Games, Inc.  League of Legends and all related logos, characters, names and distinctive likenesses thereof are exclusive property of Riot Games, Inc.  All Rights Reserved.</p>
+                    <ul>
+                        <li><a href="">Privacy Policy</a></li>
+                        <li><a href="">Terms Of Service</a></li>
+                        <li><a href="">Cookia Policy</a></li>
+                    </ul>
+                    <img src="Image/Pegi.png" alt="">
+                </div>
+                <div class="innerfooter_right">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2338.0212264550178!2d-118.45818289179739!3d34.032035481222685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bb147c58ab95%3A0xd27aa3a914d492b4!2sRiot%20Games%20Inc.!5e0!3m2!1sen!2s!4v1596649953351!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

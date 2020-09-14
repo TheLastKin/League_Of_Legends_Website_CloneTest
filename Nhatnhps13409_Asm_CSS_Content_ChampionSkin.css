@@ -1,0 +1,210 @@
+.content_skin .champion_skin{
+    position: absolute;
+    width: 28vw;
+    height: 28vw;
+    min-width: 290px;
+    min-height: 290px;
+    transform: rotate(45deg);
+    border: 1px solid gray;
+}
+.content_skin .champion_skin img{
+    position: absolute;
+    top: -4.8vw;
+    left: -4.8vw;
+    width: 135%;
+    height: 135%;
+    transform: rotate(-45deg);
+    animation: none;
+}
+.champion_skin span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+.champion_skin img:first-of-type{
+    z-index: 1;
+    clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
+}
+.champion_skin img:nth-of-type(2){
+    z-index: 2;
+    clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
+}
+.champion_skin img:last-of-type{
+    z-index: 3;
+}
+  .champion_skin span:nth-child(1)
+  {
+    transform:rotate(0deg);
+  }
+  
+  .champion_skin span:nth-child(2)
+  {
+    transform:rotate(90deg);
+  }
+  
+  .champion_skin span:nth-child(3)
+  {
+    transform:rotate(180deg);
+  }
+  
+  .champion_skin span:nth-child(4)
+  {
+    transform:rotate(270deg);
+  }
+  
+  .champion_skin span:before
+  {
+    content: '';
+    position: absolute;
+    width:100%;
+    height: 2px;
+    background: goldenrod;
+    animation: animate 2s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+        transform:scaleX(0);
+        transform-origin: left;
+    }
+    50%
+    {
+        transform:scaleX(1);
+        transform-origin: left;
+    }
+    50.1%
+    {
+        transform:scaleX(1);
+        transform-origin: right;
+      
+    }
+    
+    100%
+    {
+        transform:scaleX(0);
+        transform-origin: right;
+      
+    }
+    
+    
+  } 
+  .champion_skin img:first-of-type{
+      z-index: 1;
+  }
+  .champion_skin img:nth-of-type(2){
+      z-index: 2;
+  }
+  .champion_skin img:last-of-type{
+      z-index: 3;
+  }
+  @keyframes showSkin{
+      0%{
+        clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
+      }
+      50%{
+          clip-path: polygon(0 0, 0 0, 100% 100%, 100% 100%, 0 100%);
+      }
+      100%{
+          clip-path: polygon(0 0, 100% 0, 100% 0, 100% 100%, 0 100%);
+      }
+  }
+  @keyframes clearSkin{
+      0%{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+      }
+      50%{
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 0);
+      }
+      100%{
+        clip-path: polygon(100% 0,100% 0,100% 0,100% 0,100% 0);
+      }
+  }
+.content_skin .champion_skin_description{
+  width: 500px;
+  height: 450px;
+  position: absolute;
+  top: 270px;
+  left: calc(50% + 27vw - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.content_skin p{
+  position: absolute;
+  display: block;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 5;
+}
+.content_skin p:first-of-type{
+  width: fit-content;
+  height: fit-content;
+  top: 90px;
+  font-size: 22px;
+  font-weight: 500;
+  font-style: italic;
+}
+.content_skin p:nth-of-type(2){
+  width: fit-content;
+  height: fit-content;
+  top: 110px;
+  font-size: 100px;
+  font-style: italic;
+  font-weight: 600;
+}
+.content_skin p:last-of-type{
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  top: 215px;
+  line-height: 23px;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+}
+.content_skin a{
+  position: absolute;
+  text-align: center;
+  display: block;
+  top: 260px;
+  width: 170px;
+  height: 21px;
+  padding-top: 7px;
+  font-size: 10.5px;
+  letter-spacing: 0.6px;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  margin-top: 15px;
+  clip-path: polygon(5% 0, 100% 0, 100% 65%, 95% 100%, 0 100%, 0 35%);
+  transition: clip-path 0.3s;
+  background-color: rgb(1, 227, 231);
+}
+.content_skin a:hover{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+}
+@media screen and (max-width: 1600px){
+  .content_skin .champion_skin{
+    width: 40vw;
+    height: 40vw;
+    max-width: 430px;
+    max-height: 430px;
+  }
+  .content_skin .champion_skin_description{
+    left: calc(50% + 25.5vw - 200px);
+  }
+}
+@media screen and (max-width: 1100px){
+  .content_skin .champion_skin_description{
+    position: absolute;
+    left: auto;
+    top: 20px;
+  }
+  .content_skin .champion_skin{
+    position: absolute;
+    top: 450px;
+  }
+}

@@ -1,0 +1,532 @@
+.innertophead_left_1{
+    width: 5%;
+    min-width: 90px;
+    height: 65%;
+    position: absolute;
+    left: 0px;
+    margin: 15px 0px 15px 25px;
+}
+.innertophead_left_1>video{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+.innertophead_left_1 i{
+    display: block;
+    width: 30px;
+    height: 25px;
+    font-size: 22px;
+    color: #7e7e7e;
+    float: right;
+    position: relative;
+    padding-top: 5px;
+    margin-top: 12px;
+    border-right: 1.5px solid #7e7e7e;
+    border-radius: 0.2px;
+}
+.innertophead_left_1:hover{
+    cursor: pointer;
+}
+.innertophead_left_1:hover i{
+    color: whitesmoke;
+}
+.innertophead_left_2{
+    width: 67%;
+    padding-top: 15px;
+    height: 79%;
+    position: absolute;
+    left: 125px;
+}
+.innertophead_left_2>img{
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+.innertophead_left_2 .redirect_tags{
+    position: absolute;
+    list-style: none;
+    float: left;
+    margin-top: 11px;
+    margin-left: 25px;
+}
+.innertophead_left_2 ul li{
+    display: inline-block;
+    margin-right: 17px;
+}
+.innertophead_left_2 ul li a{
+    display: block;
+    height: 52px;
+    width: auto;
+    padding-left: 9px;
+    padding-right: 9px;
+    color: whitesmoke;
+    font-size: 11px;
+    text-decoration: none;
+    line-height: 30px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: border-bottom 0.13s linear;
+}
+.innertophead_left_2 ul li #north_east{
+    font-size: 13px;
+    color: #7e7e7e;
+    vertical-align: -2px;
+}
+.innertophead_left_2 ul li #arrow_drop_down{
+    font-size: 22px;
+    color: #7e7e7e;
+    vertical-align: -7px;
+}
+.innertophead_left_2 .redirect_tags li a:hover #arrow_drop_down, .innertophead_left_2 .redirect_tags li a:hover #north_east{
+    color: azure;    
+}
+.innertophead_left_2 .redirect_tags>li:hover{
+    border-bottom: 2px solid turquoise;
+    border-radius: 2px;
+}
+.innertophead_left_2 ul #list_more{
+    position: relative;
+    float: right;
+    display: none;
+    height: 52px;
+    width: 70px;
+    padding-left: 9px;
+    padding-right: 9px;
+    color: whitesmoke;
+    font-size: 11px;
+    text-decoration: none;
+    line-height: 30px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    transition: border-bottom 0.13s linear;
+}
+.innertophead_left_2 ul li:last-child i{
+    font-size: 22px;
+    color: #7e7e7e;
+    vertical-align: -7px;
+}
+.innertophead_left_2 ul #list_more ul{
+    position: relative;
+    display: none;
+    width: 155px;
+    height: auto;
+    background-color: #111111;
+    top: 21px;
+    left: -15px;
+}
+.innertophead_left_2 ul #list_more ul li{
+    position: relative;
+    left: -40px;
+    display: block;
+    width: 195px;
+    height: 35px;
+    padding-top: 5px;
+}
+#list_more:hover{
+    cursor: pointer;
+}
+.innertophead_left_2 ul #list_more:hover ul{
+    display: block;
+}
+.innertophead_left_2 ul #list_more ul li:hover{
+    background-color: rgba(245, 255, 250, 0.5);
+}
+.innertophead_right{
+    position: absolute;
+    right: 0px;
+    width: 17%;
+    min-width: 310px;
+    height: 100%;
+    float: right;
+}
+.innertophead_right #dehaze{
+    position: absolute;
+    top: -7px;
+    right: 10px;
+    display: none;
+    width: auto;
+    height: auto;
+    padding: 7px;
+    border-radius: 100px;
+    background-color: rgba(180, 180, 180, 0.3);
+}
+.innertophead_right i{
+    color: whitesmoke;
+    margin-top: 28px;
+    font-size: 20px;
+    vertical-align: sub;
+}
+.innertophead_right i:hover{
+    cursor: pointer;
+}
+.innertophead_right .sign_in{
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    display: block;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    color: whitesmoke;
+    margin-left: 25px;
+    margin-right: 15px;
+    letter-spacing: 1.5px;
+}
+.innertophead_right .sign_in:hover{
+    cursor: pointer;
+}
+.innertophead_right .btn_play_now{
+    margin-top: 15px;
+    display: block;
+    float: right;
+    width: 140px;
+    height: 33px;
+    padding-top: 17px;
+    background-color: #0bc4e2;
+    text-align: center;
+    margin-right: 25px;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 900;
+    color: whitesmoke;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.innertophead_right .btn_play_now:hover{
+    background-color: #0ca4bb;
+}
+.intro_banner video{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+.intro_banner_front video{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.intro_banner_front img{
+    position: absolute;
+    width: 75%;
+    height: 50%;
+    max-width: 600px;
+    min-width: 350px;
+    top: 20%;
+}
+.intro_banner_front .outerline_banner{
+    position: absolute;
+    left: 15px;
+    width: calc(100% - 40px);
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid rgb(145, 145, 145);
+    clip-path: polygon(0 0, calc(100% - 46px) 0, 100% calc(0% + 46px), 100% 100%, 0 100%, 0% 50%);
+    z-index: 3;
+}
+.outerline_banner span{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    top: 12.5px;
+    right: 12.5px;
+    transform: rotate(45deg);
+    border-top: 1px solid rgb(145, 145, 145);
+}
+.outer{
+    position: absolute;
+    top: 380px;
+    width: 200px;
+    height: 60px;
+    background-color: rgb(11, 198, 227);
+  }
+.btn_play_for_free{
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    width: 200px;
+    height: 43px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-top: 27px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1.5px;
+    color: black;
+    font-size: 13px;
+    border: 1px solid whitesmoke;
+    clip-path: polygon(10.99% 0, 100% 0, 100% 70%, 89% 100%, -0.7px 100%, -0.7px 31.9%);
+    transition: clip-path 0.2s;
+    z-index: 5;
+  }
+.top_left_corner{
+    position: absolute;
+    width: 0px;
+    height: 32px;
+    border-left: 1px solid whitesmoke;
+    transform: rotate(44deg);
+    top: -10.5px;
+    left: 4.3px;
+    transition: height 0.2s, top 0.2s, left 0.2s;
+  }
+.bottom_right_corner{
+    position: absolute;
+    width: 0px;
+    height: 32px;
+    border-right: 1px solid whitesmoke;
+    transform: rotate(45deg);
+    bottom: -14px;
+    right: 6px;
+    transition: height 0.2s, bottom 0.2s, right 0.2s;
+  }
+.outer:hover .top_left_corner{
+    height: 0px;
+    top: -7px;
+    left: -7px;
+  }
+.outer:hover .bottom_right_corner{
+    height: 0px;
+    bottom: -10px;
+    right: -5px;
+  }
+.outer:hover .btn_play_for_free{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+}
+.articles .title_left{
+    position: absolute;
+    left: 0px;
+    width: 40px;
+    height: 100%;
+    text-align: center;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    font-size: 11px;
+}
+.articles .title_left p::before{
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 1px;
+    background-color: black;
+    transform: rotate(90deg);
+    right: 63%;
+    top: 70%;
+}
+.articles section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 83%;
+    height: 80%;
+}
+.articles section article{
+    border: 1px solid rgba(128, 128, 128);
+    clip-path: polygon(-15px 0, calc(100% - 22.7px) 0.2px, 100% 22.7px, 100% calc(100% - 0.2px), -15px 100%);
+    position: absolute;
+    width: 26%;
+    height: 140px;
+    background-color: rgba(245, 245, 245, 0.4);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255,255,255));
+    margin-top: 20px;
+    min-width: 370px;
+    transition: 0.3s;
+}
+.articles section article:hover{
+    clip-path: polygon(-15px 0, 100% 0px, 100% 0px, 100% 100%, -15px 100%);
+}
+.articles section .article_box_1{
+    left: 0;
+}
+.articles section .article_box_3{
+    right: 0;
+}
+.articles section img{
+    position: absolute;
+    left: -15px;
+    margin-top: 10px;
+}
+.articles section .white_line{
+    position: absolute;
+    width: 1px;
+    height: 90%;
+    background-color: whitesmoke;
+    z-index: 1;
+    top: 10px;
+}
+.articles section .top_right_border{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    border-top: 1px solid rgba(128, 128, 128, 0.9);
+    top: 6px;
+    right: 6px;
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+.articles section article:hover .top_right_border{
+    width: 0px;
+    height: 0px;
+    top: 0px;
+    right: 0px;
+}
+.articles section article::before{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-top: 2px solid rgb(160, 160, 160);
+    border-right: 2px solid rgb(160, 160, 160);
+    transition: 0.3s 0.15s;
+}
+.articles section article:hover::before{
+    width: 25px;
+    height: 25px;
+}
+.articles section p{
+    margin-left: 140px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.articles section p:first-of-type{
+    font-size: 11px;
+    color: rgb(197, 197, 197);
+    font-weight: 600;
+    margin-top: 25px;
+    letter-spacing: 1.3px;
+}
+.articles section .article_title{
+    margin-left: 140px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    display: block;
+    width: 60%;
+    height: auto;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    color: #111111;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.articles section p:nth-of-type(2){
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+.articles section .view_all{
+    position: absolute;
+    right: 0px;
+    top: 250px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #111111;
+}
+.articles section .view_all::before{
+    content: '';
+    width: 2px;
+    height: 2px;
+    background-color: turquoise;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    transition: right 0.3s;
+}
+.articles section .view_all i{
+    color: turquoise;
+    font-size: 12px;
+    vertical-align: -2px;
+    position: relative;
+    right: -8px;
+    transition: right 0.3s;
+}
+.articles section .view_all:hover::before{
+    right: 1px;
+}
+.articles section .view_all:hover i{
+    right: -13px;
+}
+@media screen and (max-width: 1425px){
+    .articles section article:nth-child(2){
+        right: 0px;
+    }
+    .articles section article:nth-child(3){
+        display: none;
+    }
+}
+@media screen and (max-width: 1025px){
+    .innertophead_left_1 i{
+        margin-right: 10px;
+        border-right: 0px;
+    }
+    .innertophead_left_1{
+        left: 0px;
+    }
+    .innertophead_left_2 img, .innertophead_left_2 .redirect_tags, .innertophead_right .btn_play_now, .innertophead_right .sign_in{
+        display: none;
+    }
+    .innertophead_left_2{
+        position: relative;
+        left: 0px;
+        width: 130px;
+        background: url(Image/LOL_Logo_2.png);
+        background-size: 130px 50px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .innertophead_right{
+        right: 0px;
+        min-width: 0px;
+        width: 80px;
+    }
+    .innertophead_right #dehaze{
+        display: block;
+    }
+}
+@media screen and (max-width: 950px){
+    .articles section article:nth-child(1){
+        position: relative;
+    }
+    .articles section article:nth-child(2){
+        display: none;
+    }
+}
+@media screen and (max-width: 600px){
+    .articles .title_left{
+        top: 50px; 
+        left: 0px;
+        width: 150px;
+        height: auto;
+        writing-mode: initial;
+        transform: none;
+    }
+    .articles .title_left p::before{
+        right: 0px;
+        transform: none;
+        top: 5px;
+    }
+    .intro_banner_front .outerline_banner{
+        display: none;
+    }
+    .intro_banner_front{
+        top: 80px;
+        left: 0px;
+        width: 100%;
+        height: 535px;
+    }
+}
